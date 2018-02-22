@@ -1,0 +1,89 @@
+
+
+
+
+
+tterbot import ChatBot
+from chatterbot.trainers import ListTrainer
+import sqlite3
+
+#db = MySqldb.connect("localhost", "root", "toor", "DBMSFile")
+#conn = sqlite3.connect(DBMSFile)
+
+chatbot = ChatBot('Divya', storage_adapter='chatterbot.storage.SQLStorageAdapter',
+                  input_adapter= 'chatterbot.input.TerminalAdapter',
+                  output_adapter= 'chatterbot.output.TerminalAdapter',
+#                  logic_adapters=['chatterbot.logic.BestMatch'],
+                  database='./database.sqlite3')
+
+conversation= (
+    "Hello",
+    "hi!",
+    "how are you?",
+    "I'm good"
+    );
+
+
+response = bot.get_respoonse(conversation)
+print(response)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]
+
+chatbot.set_trainer(ListTrainer)
+chatbot.train(conversation)
+print("User says: ")
+
+while True:
+    try:
+        response = chatbot.get_response(conversation)
+
+    except(KeyboardInterrupt, EOFError, TimeoutError ):
+        break
+
+
+#chatbot.get_response("Helloo")
+
+
